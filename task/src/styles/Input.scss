@@ -1,0 +1,53 @@
+.input {
+  height: 88px;
+  width: 343px;
+  // width: calc(100% - 32px)
+  &__label {
+    color: #262626;
+    font-weight: 400;
+    font-size: 14px;
+    height: 22px;
+    margin-bottom: 2px;
+    line-height: 22px;
+  }
+  &__warning {
+    margin-top: 2px;
+    color: #f5222d;
+    height: 22px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  &__pole {
+    height: 40px;
+    width: 343px;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color: #595959;
+    padding: 8px 12px 8px 12px;
+    &.-warning {
+      border: 1px solid #5a5f59;
+    }
+    &::placeholder {
+      color: #bfbfbf;
+      font-weight: 300;
+      font-weight: 400;
+      font-size: 14px;
+    }
+    &:focus {
+      border: 1px solid #40a9ff;
+      outline: none;
+    }
+    &:hover {
+      border: 1px solid #40a9ff;
+    }
+    &:disabled {
+      color: #bfbfbf;
+      &:hover {
+        border: 1px solid #d9d9d9;
+      }
+    }
+  }
+}
