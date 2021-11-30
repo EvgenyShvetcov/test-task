@@ -1,6 +1,14 @@
 import React from "react";
 
-export const Select = ({
+interface ModalProps {
+  value?: any;
+  label?: any;
+  options?: any[];
+  placeholder?: any;
+  props?: any;
+}
+
+export const Select: React.FC<ModalProps> = ({
   value,
   options = [],
   label,

@@ -1,9 +1,20 @@
 import React from "react";
 import { useTable, usePagination } from "react-table";
 
-export const Table = ({ columns, data }) => {
-  const tableInstance = useTable(
-    { columns, data, initialState: { pageIndex: 0 } },
+interface TableProps {
+  columns?: any;
+  data?: any;
+  tableInstance?: any;
+  initialState?: any;
+}
+
+export const Table: React.FC<TableProps> = ({ columns, data }) => {
+  const tableInstance: any = useTable(
+    {
+      columns,
+      data,
+      // initialState: { pageIndex: 0 },
+    },
     usePagination
   );
   const {
@@ -20,20 +31,6 @@ export const Table = ({ columns, data }) => {
 
   return (
     <div>
-      <div>
-        {" "}
-        <button className="button" onClick={() => previousPage()}>
-          {"<"}
-        </button>{" "}
-        <button
-          style={{ marginRight: "8px" }}
-          className="button"
-          onClick={() => nextPage()}
-        >
-          {">"}
-        </button>
-        {pageIndex + 1} of {pageOptions.length}
-      </div>
       <table
         style={{
           borderSpacing: 0,
@@ -44,9 +41,9 @@ export const Table = ({ columns, data }) => {
         {...getTableProps()}
       >
         <thead>
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map((headerGroup: any) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
+              {headerGroup.headers.map((column: any) => (
                 <th
                   style={{
                     margin: 0,
@@ -64,11 +61,11 @@ export const Table = ({ columns, data }) => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
+          {page.map((row: any, i: any) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
+                {row.cells.map((cell: any) => {
                   return (
                     <td
                       style={{
@@ -88,6 +85,20 @@ export const Table = ({ columns, data }) => {
           })}
         </tbody>
       </table>
+      <div>
+        {" "}
+        <button className="button" onClick={() => previousPage()}>
+          {"<"}
+        </button>{" "}
+        <button
+          style={{ marginRight: "8px" }}
+          className="button"
+          onClick={() => nextPage()}
+        >
+          {">"}
+        </button>
+        {pageIndex + 1} of {pageOptions.length}
+      </div>
     </div>
   );
 };

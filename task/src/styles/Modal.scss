@@ -4,41 +4,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 204px;
-  width: 340px;
-  top: 0;
-  transform: translateY(50px);
-  transition: 4s ease-out;
+  height: 404px;
+  width: 640px;
+  top: 100px;
   border-radius: 4px;
   background: #ffffff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.23);
   max-height: 500px;
-  @media (min-width: 1024px) {
-    &.-big {
-      min-height: 654px;
-      min-width: 758px;
 
-      border-radius: 0px;
-    }
-    &__foot {
-      min-height: 146px;
-      display: flex;
-      align-items: center;
-    }
-    &.-small {
-      min-height: 244px;
-      min-width: 547px;
-      left: 447px !important;
-      top: 0;
-      border-radius: 4px;
-    }
-  }
-  &.-small {
-    left: 4.27%;
-    right: 5.07%;
-    top: 25.67%;
-    bottom: 56.01%;
-  }
   &.-big {
     width: 340px;
     height: 500px;
@@ -50,18 +23,8 @@
     font-weight: 700;
     line-height: 38px;
     letter-spacing: 0em;
-    text-align: left;
-    padding: 32px 76px 8px 58px;
-  }
-  &__headersmall {
-    font-family: SF Pro Display;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 38px;
-    letter-spacing: 0em;
     text-align: center;
-    padding: 32px 76px 8px 79px;
+    padding: 32px 76px 8px 58px;
   }
 
   &__body {
@@ -76,18 +39,7 @@
     color: #262626;
     overflow-y: auto;
   }
-  &__bodysmall {
-    padding: 0px 38px 32px 42px;
-    font-family: SF Pro Display;
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: 0em;
-    font-size: 20px;
-    line-height: 38px;
-    text-align: center;
-    color: #262626;
-    overflow-y: auto;
-  }
+
   &__foot {
     margin: 8px;
 

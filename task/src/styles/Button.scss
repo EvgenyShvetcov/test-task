@@ -1,16 +1,4 @@
 .button {
-  @media (min-width: 1024px) {
-    &__modal {
-      height: 40px;
-      min-width: 360px;
-      border-radius: 2px;
-      border: 1px solid #1890ff;
-
-      background: #1890ff;
-      border-radius: 2px;
-    }
-  }
-
   &:disabled {
     background: #e8e8e8;
     border: 1px solid #d9d9d9;
