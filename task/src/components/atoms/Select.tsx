@@ -13,19 +13,18 @@ export const Select: React.FC<ModalProps> = ({
   options = [],
   label,
   placeholder,
-  ...props
 }) => {
   return (
     <div className="select">
       {label && <div className="select__label">{label}</div>}
-      <select className="select__pole" value={value} {...props}>
+      <select className="select__pole" value={value}>
         {placeholder && (
-          <option value="" disabled selected={value ? false : true} hidden>
+          <option className="select__placeholder" value="" disabled selected={value ? false : true} hidden>
             {placeholder}
           </option>
         )}
         {options.map(({ label, ...props }) => (
-          <option key={label} {...props}>
+          <option key={label} className="select__option">
             {label}
           </option>
         ))}

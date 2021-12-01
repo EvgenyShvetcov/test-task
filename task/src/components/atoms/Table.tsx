@@ -31,6 +31,20 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
 
   return (
     <div>
+        <div>
+        {" "}
+        <button className="button" onClick={() => previousPage()}>
+          {"<"}
+        </button>{" "}
+        <button
+          style={{ margin: "0 8px 8px 8px" }}
+          className="button"
+          onClick={() => nextPage()}
+        >
+          {">"}
+        </button>
+        {pageIndex + 1} of  {pageOptions.length}
+      </div>
       <table
         style={{
           borderSpacing: 0,
@@ -85,20 +99,7 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
           })}
         </tbody>
       </table>
-      <div>
-        {" "}
-        <button className="button" onClick={() => previousPage()}>
-          {"<"}
-        </button>{" "}
-        <button
-          style={{ marginRight: "8px" }}
-          className="button"
-          onClick={() => nextPage()}
-        >
-          {">"}
-        </button>
-        {pageIndex + 1} of {pageOptions.length}
-      </div>
+   
     </div>
   );
 };

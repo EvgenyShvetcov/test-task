@@ -1,0 +1,14 @@
+.main{
+    padding: 24px;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.seeMore{
+    &:hover {
+        color: rgb(122, 120, 120);
+        cursor: pointer;
+      }
+}

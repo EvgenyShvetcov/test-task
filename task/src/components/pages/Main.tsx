@@ -1,16 +1,21 @@
 import React, { useState, useMemo, useEffect } from "react";
 
 import { Input } from "../atoms/Input";
-import { useGetDataQuery } from "../../services/fetchService";
+import { useGetDataQuery } from "../../api/jobs";
 import { Modal } from "../moleculas/Modal";
 import { Select } from "../atoms/Select";
 import { Table } from "../atoms/Table";
 import { useAppSelector } from "../../hooks";
 
 export const Main: React.FC = () => {
-  const storeData = useAppSelector((state) => state);
+  // const storeData = useAppSelector((state) => state);
 
-  const { data } = useGetDataQuery("");
+  const { data, isLoading, error } = useGetDataQuery();
+
+  //хуки поиска и группировки
+
+  const [search, setSearch] = useState('')
+
 
   // хуки для модалки
   const [modal, setModal] = useState(false);
@@ -28,6 +33,7 @@ export const Main: React.FC = () => {
         Cell: (el: any) => {
           return (
             <div
+            className='seeMore'
               onClick={() => {
                 setCurrentData(el.row.original);
                 setModal(true);
@@ -43,12 +49,14 @@ export const Main: React.FC = () => {
     []
   );
 
-  console.log(storeData);
+  console.log(data);
 
   return (
-    <>
-      <Input type="text" placeholder="Search bar" />
-      <Select label="Group by" />
+    <div className='main'>
+      <div className='main__header'> 
+      <Input type="text" placeholder="Search bar" value={search} onChange={(e: any) => setSearch(e.target.value)} />
+      <Select placeholder="Group by" options={[{label: 'ffffffffff', value:'ffffffffff' }, {label: 'aaaaaaa', value:'aaaaaaa' }]} />
+      </div> 
       {data && <Table columns={columns} data={data.jobs} />}
       {modal && (
         <Modal
@@ -59,7 +67,7 @@ export const Main: React.FC = () => {
           data={currentData}
         />
       )}
-    </>
+    </ div>
   );
 };
 

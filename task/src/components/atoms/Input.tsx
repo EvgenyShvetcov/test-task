@@ -6,6 +6,7 @@ interface InputProps {
   type: any;
   value?: any;
   props?: any;
+  onChange?: (arg: any)=> void
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -13,6 +14,7 @@ export const Input: React.FC<InputProps> = ({
   type = "text",
   value,
   placeholder = "Введите текст",
+  onChange,
   ...props
 }) => {
   return (
@@ -22,6 +24,7 @@ export const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         className={className ? className : `input__pole`}
         value={value}
+        onChange={onChange}
         {...props}
       ></input>
     </div>
