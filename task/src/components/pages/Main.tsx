@@ -1,7 +1,6 @@
 import React, { useState, useMemo, ChangeEvent } from "react";
-
 import { Input } from "../atoms/Input";
-import { useGetDataQuery, useGetPokemonQuery } from "../../api/jobs";
+import { useGetDataQuery, useGetPokemonQuery } from "../../api/pokemons";
 import { Modal } from "../moleculas/Modal";
 import { Select } from "../atoms/Select";
 import { Table } from "../atoms/Table";
@@ -42,11 +41,8 @@ export const Main: React.FC = () => {
         },
       },
     ],
-
     []
   );
-
-  console.log(pokemonBase?.filter((EL) => EL.name === search));
 
   return (
     <div className="main">
@@ -76,7 +72,7 @@ export const Main: React.FC = () => {
               : pokemonBase
           }
         />
-      )) || <div>Loading or no data</div>}
+      )) || <div className="main_info">Loading or no data...</div>}
       {modal && pokemonInfo && (
         <Modal
           onModalClose={() => {

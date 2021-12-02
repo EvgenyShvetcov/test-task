@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { PokemonBase, Pokemon } from "../models";
 
-export const jobsApi = createApi({
-  reducerPath: "jobsApi",
+export const pokemonsApi = createApi({
+  reducerPath: "pokemonsApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://pokeapi.co/api/v2/",
   }),
@@ -17,7 +17,7 @@ export const jobsApi = createApi({
   }),
 });
 
-export const { useGetDataQuery, useGetPokemonQuery } = jobsApi;
+export const { useGetDataQuery, useGetPokemonQuery } = pokemonsApi;
 
 //query | queryFn
 //transformResponse only with query

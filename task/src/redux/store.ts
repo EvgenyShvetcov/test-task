@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { jobsApi } from "../api/jobs";
+import { pokemonsApi } from "../api/pokemons";
 
 export const store = configureStore({
   reducer: {
-    [jobsApi.reducerPath]: jobsApi.reducer,
+    [pokemonsApi.reducerPath]: pokemonsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(jobsApi.middleware),
+    getDefaultMiddleware().concat(pokemonsApi.middleware),
   devTools: process.env.NODE_ENV !== "production",
   //preloadedState для начального значения
 });
