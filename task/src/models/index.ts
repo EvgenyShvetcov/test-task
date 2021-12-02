@@ -1,1 +1,1 @@
-export type { Api, Website, Job } from './api';
+export type { PokemonBase, Pokemon } from "./api";

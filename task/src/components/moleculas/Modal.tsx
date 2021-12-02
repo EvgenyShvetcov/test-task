@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "../atoms/Button";
 import { createPortal } from "react-dom";
-import close from "./../../icons/close.svg";
 
 interface ModalProps {
   onModalClose?: () => void;
@@ -20,18 +19,37 @@ export const Modal: React.FC<ModalProps> = ({
   return createPortal(
     <div className="modal__background">
       <div className={"modal"}>
-        <div className="modal__header">{data.name}</div>
-        <div className={"modal__body"}>
-          <div>{data.office.name}</div>
-          <div>{data.contract_type.en}</div>
-        </div>
-        <div className="modal__foot">
-          <Button
-            className="button__modal"
-            label="Close info"
-            onClick={onModalClose}
-          ></Button>
-        </div>
+        {data && (
+          <>
+            <div className="modal__header">{data.name}</div>
+            <div className={"modal__body"}>
+              <div>
+                <div>Types:</div>
+                <div className={"modal__types"}>
+                  {data?.types?.map((el: any) => (
+                    <div>{el.type.name}</div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div>Abilities:</div>
+                <div className={"modal__types"}>
+                  {data?.abilities?.map((el: any) => (
+                    <div>{el.ability.name}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="modal__foot">
+              <Button
+                className="button__modal"
+                label="Close info"
+                onClick={onModalClose}
+              ></Button>
+            </div>
+          </>
+        )}
       </div>
     </div>,
     document.body

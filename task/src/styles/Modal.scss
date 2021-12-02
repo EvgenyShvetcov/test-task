@@ -11,11 +11,6 @@
   background: #ffffff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.23);
   max-height: 500px;
-
-  &.-big {
-    width: 340px;
-    height: 500px;
-  }
   &__header {
     font-family: SF Pro Display;
     font-size: 24px;
@@ -26,8 +21,14 @@
     text-align: center;
     padding: 32px 76px 8px 58px;
   }
+  &__types {
+    margin-top: 10px;
+  }
 
   &__body {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
     padding: 0px 38px 32px 42px;
     font-family: SF Pro Display;
     font-style: normal;
@@ -35,13 +36,13 @@
     letter-spacing: 0em;
     font-size: 20px;
     line-height: 38px;
-    text-align: left;
+
     color: #262626;
     overflow-y: auto;
   }
 
   &__foot {
-    margin: 8px;
+    margin-top: 80px;
 
     display: flex;
     align-items: center;
