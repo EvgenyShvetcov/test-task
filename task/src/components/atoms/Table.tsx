@@ -31,7 +31,7 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
 
   return (
     <div>
-      <div>
+      <div style={{ fontSize: "18px" }}>
         {" "}
         <button className="button" onClick={() => previousPage()}>
           {"<"}
@@ -64,7 +64,8 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
                     width: "300px",
                     padding: "0.5rem",
                     border: "1px solid black",
-                    background: "#f0c9c9",
+                    background: "#eaeaeb",
+                    fontSize: "18px",
                   }}
                   {...column.getHeaderProps()}
                 >

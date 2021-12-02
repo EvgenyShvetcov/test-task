@@ -5,11 +5,15 @@
     box-sizing: border-box;
     border-radius: 2px 0px 0px 2px;
   }
+  padding: 8px;
   max-height: 40px;
   max-width: 343px;
-  border: 1px solid #1890ff;
-  background: #d5e9fc;
+  border: 1px solid black;
+  background: #fff;
   border-radius: 4px;
+  &:hover {
+    border: 1px solid #40a9ff;
+  }
   &__modal {
     height: 40px;
     width: 308px;

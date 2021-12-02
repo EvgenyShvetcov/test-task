@@ -21,11 +21,11 @@ export const Main: React.FC = () => {
   const columns = useMemo(
     () => [
       {
-        Header: "Job name",
+        Header: "Pokemon name",
         accessor: "name",
       },
       {
-        Header: "Job card",
+        Header: "Pokemon card",
         Cell: (el: any) => {
           return (
             <div
