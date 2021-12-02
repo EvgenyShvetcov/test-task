@@ -31,7 +31,7 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
 
   return (
     <div>
-        <div>
+      <div>
         {" "}
         <button className="button" onClick={() => previousPage()}>
           {"<"}
@@ -43,7 +43,7 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
         >
           {">"}
         </button>
-        {pageIndex + 1} of  {pageOptions.length}
+        {pageIndex + 1} of {pageOptions.length}
       </div>
       <table
         style={{
@@ -99,7 +99,6 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
           })}
         </tbody>
       </table>
-   
     </div>
   );
 };

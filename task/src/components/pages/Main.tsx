@@ -8,16 +8,17 @@ import { Table } from "../atoms/Table";
 
 export const Main: React.FC = () => {
   //хуки поиска и группировки
-
   const [search, setSearch] = useState("");
 
   // хуки для модалки
   const [modal, setModal] = useState(false);
   const [currentData, setCurrentData] = useState("");
 
+  //хуки rtk query
   const pokemonBase = useGetDataQuery().data;
-  const { data, isLoading, error } = useGetPokemonQuery(currentData);
+  const pokemonInfo = useGetPokemonQuery(currentData).data;
 
+  //настройка колонок в таблице
   const columns = useMemo(
     () => [
       {
@@ -26,7 +27,6 @@ export const Main: React.FC = () => {
       },
       {
         Header: "Job card",
-
         Cell: (el: any) => {
           return (
             <div
@@ -62,8 +62,8 @@ export const Main: React.FC = () => {
         <Select
           placeholder="Group by"
           options={[
-            { label: "ffffffffff", value: "ffffffffff" },
-            { label: "aaaaaaa", value: "aaaaaaa" },
+            { label: "one", value: "one" },
+            { label: "two", value: "two" },
           ]}
         />
       </div>
@@ -72,18 +72,18 @@ export const Main: React.FC = () => {
           columns={columns}
           data={
             search
-              ? pokemonBase?.filter((EL) => EL.name === search)
+              ? pokemonBase?.filter((el) => el.name === search)
               : pokemonBase
           }
         />
       )) || <div>Loading or no data</div>}
-      {modal && data && (
+      {modal && pokemonInfo && (
         <Modal
           onModalClose={() => {
             setModal(false);
             setCurrentData("");
           }}
-          data={data}
+          data={pokemonInfo}
         />
       )}
     </div>
@@ -91,3 +91,4 @@ export const Main: React.FC = () => {
 };
 
 // --openssl-legacy-provider
+// перенести хук в модалку

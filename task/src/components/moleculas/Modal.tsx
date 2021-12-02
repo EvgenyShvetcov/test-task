@@ -7,15 +7,9 @@ interface ModalProps {
   className?: string;
   data?: any;
   label?: string;
-  props?: any;
 }
 
-export const Modal: React.FC<ModalProps> = ({
-  className,
-  onModalClose,
-  data,
-  ...props
-}) => {
+export const Modal: React.FC<ModalProps> = ({ onModalClose, data }) => {
   return createPortal(
     <div className="modal__background">
       <div className={"modal"}>
@@ -35,7 +29,7 @@ export const Modal: React.FC<ModalProps> = ({
                 <div>Abilities:</div>
                 <div className={"modal__types"}>
                   {data?.abilities?.map((el: any) => (
-                    <div>{el.ability.name}</div>
+                    <div key={el.ability.name}>{el.ability.name}</div>
                   ))}
                 </div>
               </div>

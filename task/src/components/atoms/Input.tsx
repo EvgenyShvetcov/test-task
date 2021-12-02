@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 interface InputProps {
   placeholder?: string;
   className?: string;
-  type: any;
-  value?: any;
-  props?: any;
-  onChange?: (arg: any)=> void
+  type: string;
+  value?: string;
+  onChange?: (arg: any) => void;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -15,7 +14,6 @@ export const Input: React.FC<InputProps> = ({
   value,
   placeholder = "Введите текст",
   onChange,
-  ...props
 }) => {
   return (
     <div className={className ? className : `input`}>
@@ -25,7 +23,6 @@ export const Input: React.FC<InputProps> = ({
         className={className ? className : `input__pole`}
         value={value}
         onChange={onChange}
-        {...props}
       ></input>
     </div>
   );
