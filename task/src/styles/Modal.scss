@@ -26,6 +26,7 @@
   }
 
   &__body {
+    min-height: 220px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -42,10 +43,11 @@
   }
 
   &__foot {
-    margin-top: 80px;
-
+  
+    
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   &__background {
     display: flex;

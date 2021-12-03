@@ -1,21 +1,25 @@
 import React, { useState, useMemo, ChangeEvent } from "react";
 import { Input } from "../atoms/Input";
-import { useGetDataQuery, useGetPokemonQuery } from "../../api/pokemons";
+import {  useGetPokemonQuery } from "../../api/pokemons";
 import { Modal } from "../moleculas/Modal";
 import { Select } from "../atoms/Select";
 import { Table } from "../atoms/Table";
+import { usePokemonUIActions } from "../../api/pokemons";
+import { GroupBy } from "../../models";
 
 export const Main: React.FC = () => {
   //хуки поиска и группировки
   const [search, setSearch] = useState("");
+  const [groupBy, setGroupBy] = useState(GroupBy.NONE)
 
   // хуки для модалки
   const [modal, setModal] = useState(false);
   const [currentData, setCurrentData] = useState("");
 
   //хуки rtk query
-  const pokemonBase = useGetDataQuery().data;
+  const pokemonBase = usePokemonUIActions(search, groupBy);
   const pokemonInfo = useGetPokemonQuery(currentData).data;
+  
 
   //настройка колонок в таблице
   const columns = useMemo(
@@ -57,9 +61,11 @@ export const Main: React.FC = () => {
         />
         <Select
           placeholder="Group by"
+          value={groupBy}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setGroupBy(e.target.value as GroupBy)}
           options={[
-            { label: "one", value: "one" },
-            { label: "two", value: "two" },
+            { label: "None", value: GroupBy.NAME },
+            { label: "Name", value: GroupBy.NONE },
           ]}
         />
       </div>
@@ -67,9 +73,7 @@ export const Main: React.FC = () => {
         <Table
           columns={columns}
           data={
-            search
-              ? pokemonBase?.filter((el) => el.name === search)
-              : pokemonBase
+             pokemonBase
           }
         />
       )) || <div className="main_info">Loading or no data...</div>}

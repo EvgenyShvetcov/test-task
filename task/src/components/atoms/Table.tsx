@@ -43,7 +43,7 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
         >
           {">"}
         </button>
-        {pageIndex + 1} of {pageOptions.length}
+        {data.length > 0 ? pageIndex + 1 : 0} of {pageOptions.length}
       </div>
       <table
         style={{

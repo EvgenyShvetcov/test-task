@@ -5,7 +5,13 @@ export interface PokemonBase {
   results: Pokemon[];
 }
 
+
 export interface Pokemon {
   name: string;
   url: string;
+}
+
+export interface ExtendedPokemon extends Pokemon {
+  age: number;
+  country: string;
 }

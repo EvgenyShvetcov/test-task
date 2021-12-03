@@ -17,10 +17,15 @@
   &__modal {
     height: 40px;
     width: 308px;
-    border-radius: 2px;
-    border: 1px solid #1890ff;
+    border-radius: 2px; 
+    border: 1px solid #84c3ff;
     margin: 16px, 16px, 16px, 16px;
-    background: #1890ff;
+    background: #baddff;
     border-radius: 2px;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid #40a9ff;
+    }
   }
 }
+

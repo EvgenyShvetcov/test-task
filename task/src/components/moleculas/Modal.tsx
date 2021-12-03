@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../atoms/Button";
 import { createPortal } from "react-dom";
+// import {  useGetPokemonQuery } from "../../api/pokemons";
 
 interface ModalProps {
   onModalClose?: () => void;
@@ -10,6 +11,9 @@ interface ModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = ({ onModalClose, data }) => {
+
+
+  
   return createPortal(
     <div className="modal__background">
       <div className={"modal"}>
