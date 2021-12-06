@@ -11,9 +11,6 @@ interface ModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = ({ onModalClose, data }) => {
-
-
-  
   return createPortal(
     <div className="modal__background">
       <div className={"modal"}>

@@ -4,7 +4,7 @@ interface ButtonProps {
   label?: string;
   className?: string;
   icon?: any;
-  onClick?: () => void;
+  onClick?: any;
 }
 
 export const Button: React.FC<ButtonProps> = ({

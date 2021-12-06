@@ -5,10 +5,11 @@ export interface PokemonBase {
   results: Pokemon[];
 }
 
-
 export interface Pokemon {
   name: string;
   url: string;
+  age: number;
+  country: string;
 }
 
 export interface ExtendedPokemon extends Pokemon {

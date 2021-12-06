@@ -1,6 +1,6 @@
 export enum GroupBy {
-    NAME = 'name',
-    AGE = 'age',
-    COUNTRY = 'country',
-    NONE = 'none',
+  NAME = "Name",
+  AGE = "Age",
+  COUNTRY = "Country",
+  NONE = "None",
 }
